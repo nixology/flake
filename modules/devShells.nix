@@ -18,13 +18,13 @@ let
 
   component = {
     inherit module;
-    dependencies = with inputs.self; [
-      components.nixology.parts.shells
-      components.nixology.systems.default
+    dependencies = with inputs.self.components; [
+      nixology.parts.shells
+      nixology.systems.default
     ];
   };
 in
 {
   imports = [ partitionedModule ];
-  flake.components.nixology.parts.devShells = component;
+  flake.components = { nixology.parts.devShells = component; };
 }

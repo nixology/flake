@@ -205,12 +205,12 @@ let
 
   component = {
     inherit module;
-    dependencies = with inputs.self; [
-      components.nixology.parts.modules
+    dependencies = with inputs.self.components; [
+      nixology.parts.modules
     ];
   };
 in
 {
   imports = [ module ];
-  flake.components.nixology.parts.modular = component;
+  flake.components = { nixology.parts.modular = component; };
 }

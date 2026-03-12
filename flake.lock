@@ -5,11 +5,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1769996383,
-        "narHash": "sha256-AnYjnFWgS49RlqX7LrC4uA+sCCDBj0Ry/WOJ5XWAsa0=",
+        "lastModified": 1772408722,
+        "narHash": "sha256-rHuJtdcOjK7rAHpHphUb1iCvgkU3GpfvicLMwwnfMT0=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "57928607ea566b5db3ad13af0e57e921e6b12381",
+        "rev": "f20dc5d9b8027381c474144ecabc9034d6a839a3",
         "type": "github"
       },
       "original": {
@@ -20,11 +20,11 @@
     },
     "nixpkgs-lib": {
       "locked": {
-        "lastModified": 1769909678,
-        "narHash": "sha256-cBEymOf4/o3FD5AZnzC3J9hLbiZ+QDT/KDuyHXVJOpM=",
+        "lastModified": 1772328832,
+        "narHash": "sha256-e+/T/pmEkLP6BHhYjx6GmwP5ivonQQn0bJdH9YrRB+Q=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "72716169fe93074c333e8d0173151350670b824c",
+        "rev": "c185c7a5e5dd8f9add5b2f8ebeff00888b070742",
         "type": "github"
       },
       "original": {
@@ -43,11 +43,11 @@
         "flake-parts": "flake-parts"
       },
       "locked": {
-        "lastModified": 1772811284,
-        "narHash": "sha256-z5nuSQavRU/DfOwO28MDXBrGHn0wcYtJ+ZMlKru0xXk=",
+        "lastModified": 1773346255,
+        "narHash": "sha256-Vft4smLs4Z0Tt1+0d5/WG1CbkitePKKDN/EBUfjKviY=",
         "ref": "refs/heads/main",
-        "rev": "fefbdfd3a07f958e4e15120c6873df8ae6819099",
-        "revCount": 32,
+        "rev": "cd915b2ab91e5d6dd401a636ff69306b4c687919",
+        "revCount": 34,
         "type": "git",
         "url": "ssh://git@github.com/marksisson/std"
       },

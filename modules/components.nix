@@ -1,6 +1,6 @@
 { inputs, lib, ... }: {
-  imports = with inputs.std; [
-    components.nixology.std.components
+  imports = with inputs.std.components; [
+    nixology.std.components
   ];
 
   # export std components as top-level components

@@ -59,12 +59,12 @@ let
 
   component = {
     inherit module;
-    dependencies = with inputs.self; [
-      components.nixology.systems.default
+    dependencies = with inputs.self.components; [
+      nixology.systems.default
     ];
   };
 in
 {
   imports = [ module ];
-  flake.components.nixology.parts.shells = component;
+  flake.components = { nixology.parts.shells = component; };
 }

@@ -10,9 +10,6 @@ let
   };
 in
 {
-  imports = [
-    parts.partitions.module
-  ];
-
-  flake.components.nixology = { inherit parts; };
+  imports = [ parts.partitions.module ];
+  flake.components = { nixology = { inherit parts; }; };
 }

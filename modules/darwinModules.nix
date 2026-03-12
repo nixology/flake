@@ -29,5 +29,5 @@ let
   };
 in
 {
-  flake.components.nixology.parts.darwinModules = component;
+  flake.components = { nixology.parts.darwinModules = component; };
 }

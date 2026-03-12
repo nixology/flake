@@ -1,5 +1,5 @@
 { inputs, ... }:
 let
-  module = with inputs.std; components.nixology.std.lib;
+  module = with inputs.std.components; nixology.std.lib;
 in
 module
