@@ -2,25 +2,35 @@
 let
   flake-schemas = config.partitions.schemas.extraInputs.flake-schemas;
 
-  module = { lib, ... }: {
-    options = with lib; with types;
-      {
-        flake.darwinModules = mkOption
-          {
-            type = lazyAttrsOf deferredModule;
-            default = { };
-            apply = mapAttrs (name: module: {
-              _class = "darwin";
-              _file = "${toString moduleLocation}#darwinModules.${name}";
-              imports = [ module ];
-            });
-            description = ''
-              Darwin modules.
+  module = { lib, ... }: with lib; {
+    options = {
+      flake.darwinModules = mkOption {
+        type = types.lazyAttrsOf types.deferredModule;
+        default = { };
+        apply = mapAttrs (k: v: {
+          _class = "darwin";
+          _file = "${toString moduleLocation}#darwinModules.${k}";
+          imports = [ v ];
+        });
+        description = ''
+          Darwin modules.
 
-              You may use this for reusable pieces of configuration, service modules, etc.
-            '';
+          You may use this for reusable pieces of configuration, service modules, etc.
+        '';
+        example = ''
+          configuration = { pkgs, ... }: {
+            # Define system packages
+            environment.systemPackages = [
+              pkgs.vim
+              pkgs.wget
+            ];
+
+            # Configure the shell
+            programs.zsh.enable = true;
           };
+        '';
       };
+    };
 
     config = {
       flake.schemas = { inherit (flake-schemas.schemas) darwinModules; };
@@ -30,6 +40,7 @@ let
   component = {
     inherit module;
     meta = {
+      description = "Darwin modules";
       shortDescription = "darwin modules";
     };
   };
