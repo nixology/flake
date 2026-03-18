@@ -1,4 +1,4 @@
-{ config, moduleLocation, ... }:
+{ config, inputs, moduleLocation, ... }:
 let
   flake-schemas = config.partitions.schemas.extraInputs.flake-schemas;
 
@@ -39,6 +39,9 @@ let
 
   component = {
     inherit module;
+    dependencies = with inputs.self.components; [
+      nixology.std.schemas
+    ];
     meta = {
       description = "Darwin modules";
       shortDescription = "darwin modules";
@@ -46,5 +49,5 @@ let
   };
 in
 {
-  flake.components = { nixology.parts.darwinModules = component; };
+  flake.components = { nixology.flake.darwinModules = component; };
 }

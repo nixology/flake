@@ -3,6 +3,7 @@
     nixology.std.components
     nixology.std.debug
     nixology.std.lib
+    nixology.std.partitions
     nixology.std.schemas
   ];
 }

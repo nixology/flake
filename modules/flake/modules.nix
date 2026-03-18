@@ -25,5 +25,5 @@ let
 in
 {
   imports = [ module ];
-  flake.components = { nixology.parts.modules = component; };
+  flake.components = { nixology.flake.modules = component; };
 }

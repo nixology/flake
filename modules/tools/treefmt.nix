@@ -7,14 +7,16 @@ let
     perSystem = { config, pkgs, ... }: {
       treefmt =
         {
-          projectRootFile = "flake.nix";
           package = pkgs.treefmt;
           programs = {
             nixpkgs-fmt.enable = true;
             shfmt.enable = true;
             deadnix.enable = true;
             keep-sorted.enable = true;
-            nixf-diagnose.enable = false;
+            nixf-diagnose = {
+              enable = true;
+              excludes = [ config.treefmt.projectRootFile ];
+            };
           };
         };
 
@@ -29,9 +31,9 @@ let
   component = {
     inherit module;
     dependencies = with inputs.self.components; [
-      nixology.parts.checks
-      nixology.parts.environments
-      nixology.parts.formatter
+      nixology.flake.checks
+      nixology.flake.formatter
+      nixology.extra.environments
       nixology.systems.default
     ];
   };

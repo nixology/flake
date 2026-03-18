@@ -1,4 +1,4 @@
-{ config, moduleLocation, ... }:
+{ config, inputs, moduleLocation, ... }:
 let
   flake-schemas = config.partitions.schemas.extraInputs.flake-schemas;
 
@@ -38,6 +38,9 @@ let
 
   component = {
     inherit module;
+    dependencies = with inputs.self.components; [
+      nixology.std.schemas
+    ];
     meta = {
       description = "Home Manager modules";
       shortDescription = "home manager modules";
@@ -45,5 +48,5 @@ let
   };
 in
 {
-  flake.components = { nixology.parts.homeModules = component; };
+  flake.components = { nixology.flake.homeModules = component; };
 }

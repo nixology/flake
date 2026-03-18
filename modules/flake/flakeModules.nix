@@ -24,5 +24,5 @@ let
   };
 in
 {
-  flake.components = { nixology.parts.flakeModules = component; };
+  flake.components = { nixology.flake.flakeModules = component; };
 }

@@ -44,5 +44,5 @@ in
     parts.devShells
     parts.formatter
   ];
-  flake.components = { nixology = { inherit parts; }; };
+  flake.components = { nixology.flake = parts; };
 }

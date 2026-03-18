@@ -1,20 +1,17 @@
-{ inputs, ... }:
+{ lib, ... }:
 let
-  module = with inputs.std.inputs.flake-parts.flakeModules; {
-    imports = [ partitions ];
+  development = let partition = "development"; in {
+    partitionedAttrs = lib.genAttrs [ "checks" "devShells" "formatter" ] (_: partition);
+    partitions.${partition}.extraInputsFlake = ../partitions/${partition};
   };
 
-  component = {
-    inherit module;
-    dependencies = with inputs.self.components; [
-      nixology.std.schemas
-    ];
-    meta = {
-      shortDescription = "module for partition management";
-    };
+  schemas = let partition = "schemas"; in {
+    partitionedAttrs = lib.genAttrs [ "schemas" ] (_: partition);
+    partitions.${partition}.extraInputsFlake = ../partitions/${partition};
+  };
+
+  module = {
+    imports = [ development schemas ];
   };
 in
-{
-  imports = [ module ];
-  flake.components = { nixology.parts.partitions = component; };
-}
+module

@@ -206,11 +206,11 @@ let
   component = {
     inherit module;
     dependencies = with inputs.self.components; [
-      nixology.parts.modules
+      nixology.flake.modules
     ];
   };
 in
 {
   imports = [ module ];
-  flake.components = { nixology.parts.modular = component; };
+  flake.components = { nixology.extra.modular = component; };
 }

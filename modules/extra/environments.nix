@@ -77,7 +77,7 @@ let
     inherit module;
     dependencies = with inputs.self.components; [
       nixology.systems.default
-      nixology.parts.devShells
+      nixology.flake.devShells
     ];
     meta = {
       shortDescription = "development environment configurations";
@@ -86,5 +86,5 @@ let
 in
 {
   imports = [ partitionedModule ];
-  flake.components = { nixology.parts.environments = component; };
+  flake.components = { nixology.extra.environments = component; };
 }

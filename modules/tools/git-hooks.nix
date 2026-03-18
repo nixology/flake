@@ -17,7 +17,7 @@ let
   component = {
     inherit module;
     dependencies = with inputs.self.components; [
-      nixology.parts.environments
+      nixology.extra.environments
       nixology.systems.default
     ];
   };
