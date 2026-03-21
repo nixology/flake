@@ -26,11 +26,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1772893680,
-        "narHash": "sha256-JDqZMgxUTCq85ObSaFw0HhE+lvdOre1lx9iI6vYyOEs=",
+        "lastModified": 1774104215,
+        "narHash": "sha256-EAtviqz0sEAxdHS4crqu7JGR5oI3BwaqG0mw7CmXkO8=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "8baab586afc9c9b57645a734c820e4ac0a604af9",
+        "rev": "f799ae951fde0627157f40aec28dec27b22076d0",
         "type": "github"
       },
       "original": {
@@ -79,11 +79,11 @@
       },
       "locked": {
         "dir": "partitions/channels/unstable",
-        "lastModified": 1773846264,
-        "narHash": "sha256-aph61ui35tROi29P+ucfkCIkeiJ1f0WbKP89/YYMpEM=",
+        "lastModified": 1774122866,
+        "narHash": "sha256-RjIBN7IvStThRUIdsh1IPCAgWdnEf6VrNBvhWdGHTUo=",
         "ref": "refs/heads/main",
-        "rev": "5ec05facbcd2f4681680204c158ab27c7d3873a0",
-        "revCount": 38,
+        "rev": "275129deb0ab447c9b36e1a935d0b9335dbeed18",
+        "revCount": 39,
         "type": "git",
         "url": "ssh://git@github.com/marksisson/std"
       },
