@@ -79,11 +79,11 @@
       },
       "locked": {
         "dir": "partitions/channels/unstable",
-        "lastModified": 1774122866,
-        "narHash": "sha256-RjIBN7IvStThRUIdsh1IPCAgWdnEf6VrNBvhWdGHTUo=",
+        "lastModified": 1774222653,
+        "narHash": "sha256-DRSD+d6GR+QuJuocA3boL6AIKfdMInbAPbrupys2HP0=",
         "ref": "refs/heads/main",
-        "rev": "275129deb0ab447c9b36e1a935d0b9335dbeed18",
-        "revCount": 39,
+        "rev": "1e9d432a07f458411d9446f4dfd0761f478dd73f",
+        "revCount": 40,
         "type": "git",
         "url": "ssh://git@github.com/marksisson/std"
       },

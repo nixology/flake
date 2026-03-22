@@ -10,5 +10,7 @@ let
   };
 in
 {
-  flake.components = { nixology.extra.easyOverlay = component; };
+  flake.components = {
+    nixology.extra.easyOverlay = component;
+  };
 }

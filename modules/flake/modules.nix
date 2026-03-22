@@ -2,7 +2,9 @@
 let
   module = with inputs.std.inputs.flake-parts.flakeModules; {
     imports = [ modules ];
-    config = { flake.schemas.modules = schema; };
+    config = {
+      flake.schemas.modules = schema;
+    };
   };
 
   schema = {
@@ -25,5 +27,7 @@ let
 in
 {
   imports = [ module ];
-  flake.components = { nixology.flake.modules = component; };
+  flake.components = {
+    nixology.flake.modules = component;
+  };
 }

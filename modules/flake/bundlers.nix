@@ -20,5 +20,7 @@ let
   };
 in
 {
-  flake.components = { nixology.flake.bundlers = component; };
+  flake.components = {
+    nixology.flake.bundlers = component;
+  };
 }

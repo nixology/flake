@@ -16,27 +16,28 @@ let
         packages = "nixpkgs packages";
       };
     in
-    builtins.mapAttrs
-      (name: description:
-        let
-          module = {
-            imports = [ "${inputs.std.inputs.flake-parts}/modules/${name}.nix" ];
-            config = { flake.schemas.${name} = flake-schemas.schemas.${name}; };
+    builtins.mapAttrs (
+      name: description:
+      let
+        module = {
+          imports = [ "${inputs.std.inputs.flake-parts}/modules/${name}.nix" ];
+          config = {
+            flake.schemas.${name} = flake-schemas.schemas.${name};
           };
+        };
 
-          component = {
-            inherit module;
-            dependencies = with inputs.self.components; [
-              nixology.std.schemas
-            ];
-            meta = {
-              shortDescription = description;
-            };
+        component = {
+          inherit module;
+          dependencies = with inputs.self.components; [
+            nixology.std.schemas
+          ];
+          meta = {
+            shortDescription = description;
           };
-        in
-        component
-      )
-      modules;
+        };
+      in
+      component
+    ) modules;
 in
 {
   imports = map (component: component.module) [
@@ -44,5 +45,7 @@ in
     parts.devShells
     parts.formatter
   ];
-  flake.components = { nixology.flake = parts; };
+  flake.components = {
+    nixology.flake = parts;
+  };
 }

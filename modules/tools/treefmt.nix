@@ -4,24 +4,28 @@ let
 
   module = {
     imports = [ treefmt.flakeModule ];
-    perSystem = { config, pkgs, ... }: {
-      treefmt =
-        {
+    perSystem =
+      {
+        config,
+        lib,
+        pkgs,
+        ...
+      }:
+      {
+        treefmt = {
           package = pkgs.treefmt;
           programs = {
-            nixpkgs-fmt.enable = true;
-            shfmt.enable = true;
-            deadnix.enable = true;
-            keep-sorted.enable = true;
+            nixfmt.enable = lib.mkDefault true;
+            shfmt.enable = lib.mkDefault true;
+            deadnix.enable = lib.mkDefault true;
+            keep-sorted.enable = lib.mkDefault true;
             nixf-diagnose = {
-              enable = true;
-              excludes = [ config.treefmt.projectRootFile ];
+              enable = lib.mkDefault true;
+              excludes = lib.mkDefault [ config.treefmt.projectRootFile ];
             };
           };
         };
-
-      environments.default.packages = with config.treefmt; builtins.attrValues build.programs;
-    };
+      };
   };
 
   partitionedModule = {
@@ -33,12 +37,13 @@ let
     dependencies = with inputs.self.components; [
       nixology.flake.checks
       nixology.flake.formatter
-      nixology.extra.environments
       nixology.systems.default
     ];
   };
 in
 {
   imports = [ partitionedModule ];
-  flake.components = { nixology.tools.treefmt = component; };
+  flake.components = {
+    nixology.tools.treefmt = component;
+  };
 }

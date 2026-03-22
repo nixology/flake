@@ -4,10 +4,13 @@ let
 
   module = {
     imports = [ git-hooks.flakeModule ];
-    perSystem = { config, ... }: with config.pre-commit; {
-      environments.default.packages = settings.enabledPackages;
-      environments.default.shellHook = shellHook;
-    };
+    perSystem =
+      { config, ... }:
+      with config.pre-commit;
+      {
+        environments.default.packages = settings.enabledPackages;
+        environments.default.shellHook = shellHook;
+      };
   };
 
   partitionedModule = {
@@ -24,5 +27,7 @@ let
 in
 {
   imports = [ partitionedModule ];
-  flake.components = { nixology.tools.git-hooks = component; };
+  flake.components = {
+    nixology.tools.git-hooks = component;
+  };
 }

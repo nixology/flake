@@ -1,21 +1,36 @@
 { inputs, ... }:
 let
-  module = { flake-parts-lib, lib, ... }: {
-    options =
-      {
-        perSystem = flake-parts-lib.mkPerSystemOption ({ pkgs, ... }: with lib; with types;
+  module =
+    { flake-parts-lib, lib, ... }:
+    {
+      options = {
+        perSystem = flake-parts-lib.mkPerSystemOption (
+          { pkgs, ... }:
+          with lib;
+          with types;
           let
             environments = mkOption {
-              type = lazyAttrsOf (submodule ({ name, ... }: {
-                options = {
-                  name = mkOption {
-                    type = str;
-                    default = name;
-                    description = "Name of the development environment.";
-                  };
-                  inherit inputsFrom mkShellOverrides packages shellHook stdenv;
-                };
-              }));
+              type = lazyAttrsOf (
+                submodule (
+                  { name, ... }:
+                  {
+                    options = {
+                      name = mkOption {
+                        type = str;
+                        default = name;
+                        description = "Name of the development environment.";
+                      };
+                      inherit
+                        inputsFrom
+                        mkShellOverrides
+                        packages
+                        shellHook
+                        stdenv
+                        ;
+                    };
+                  }
+                )
+              );
               default = { };
               description = "Development environment configurations.";
             };
@@ -28,7 +43,7 @@ let
 
             mkShellOverrides = mkOption {
               type = lazyAttrsOf anything;
-              default = { stdenv = pkgs.stdenvNoCC; };
+              default = { };
               description = "Overrides to apply to the development environment.";
             };
 
@@ -46,28 +61,40 @@ let
 
             stdenv = mkOption {
               type = package;
-              # pkgs.pkgsLLVM.llvmPackages_latest.stdenv
-              default = pkgs.stdenv;
+              default = pkgs.stdenvNoCC;
               description = "The stdenv to use for the development environment.";
             };
           in
           {
             options = { inherit environments; };
-          });
+          }
+        );
       };
 
-    config = {
-      perSystem = { config, lib, pkgs, ... }: lib.mkIf (config.environments != { })
-        {
-          devShells =
-            lib.mapAttrs
-              (name: environment: pkgs.mkShell.override environment.mkShellOverrides {
-                inherit (environment) inputsFrom name packages shellHook stdenv;
-              })
-              config.environments;
-        };
+      config = {
+        perSystem =
+          {
+            config,
+            lib,
+            pkgs,
+            ...
+          }:
+          lib.mkIf (config.environments != { }) {
+            devShells = lib.mapAttrs (
+              name: environment:
+              pkgs.mkShell.override environment.mkShellOverrides {
+                inherit (environment)
+                  inputsFrom
+                  name
+                  packages
+                  shellHook
+                  stdenv
+                  ;
+              }
+            ) config.environments;
+          };
+      };
     };
-  };
 
   partitionedModule = {
     partitions.development = { inherit module; };
@@ -86,5 +113,7 @@ let
 in
 {
   imports = [ partitionedModule ];
-  flake.components = { nixology.extra.environments = component; };
+  flake.components = {
+    nixology.extra.environments = component;
+  };
 }
