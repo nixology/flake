@@ -8,8 +8,8 @@ let
       { config, ... }:
       with config.pre-commit;
       {
-        environments.default.packages = settings.enabledPackages;
-        environments.default.shellHook = shellHook;
+        shells.default.packages = settings.enabledPackages;
+        shells.default.shellHook = shellHook;
       };
   };
 
@@ -20,7 +20,7 @@ let
   component = {
     inherit module;
     dependencies = with inputs.self.components; [
-      nixology.extra.environments
+      nixology.extra.shells
       nixology.systems.default
     ];
   };

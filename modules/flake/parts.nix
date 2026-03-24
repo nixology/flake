@@ -7,7 +7,7 @@ let
       modules = {
         apps = "runnable programs";
         checks = "derivations for testing evaluation of this flake";
-        devShells = "derivations that provide development environments";
+        devShells = "derivations that provide development shells";
         formatter = "package to use to format the project";
         legacyPackages = "nested attribute sets of nixpkgs packages";
         nixosConfigurations = "nixos configurations";
