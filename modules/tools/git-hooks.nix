@@ -5,11 +5,15 @@ let
   module = {
     imports = [ git-hooks.flakeModule ];
     perSystem =
-      { config, ... }:
+      { config, lib, ... }:
       with config.pre-commit;
       {
-        shellEnvs.default.packages = settings.enabledPackages;
-        shellEnvs.default.shellHook = shellHook;
+        shellEnvs = lib.mkIf (config.pre-commit.settings.enabledPackages != [ ]) {
+          default = {
+            packages = settings.enabledPackages;
+            shellHook = shellHook;
+          };
+        };
       };
   };
 

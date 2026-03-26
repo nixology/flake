@@ -2,11 +2,11 @@
   "nodes": {
     "flake-schemas": {
       "locked": {
-        "lastModified": 1773853635,
-        "narHash": "sha256-4VHWij4EWNqy1iZr6OxNB6cuv5tDjMwAL/J1SBLFU2Q=",
+        "lastModified": 1773072327,
+        "narHash": "sha256-jffaEGY9Tt0IgiI1qHd/cXLeTMftOqpI/gtkS/J+Xg0=",
         "owner": "DeterminateSystems",
         "repo": "flake-schemas",
-        "rev": "19686d6f3da8d4db959523f32eb1b50de9f18301",
+        "rev": "834aaadfc96174a3abd124cf3c9a7373c26d12ad",
         "type": "github"
       },
       "original": {
@@ -17,7 +17,31 @@
     },
     "root": {
       "inputs": {
+        "flake-schemas": [
+          "std-flake-schemas",
+          "flake-schemas"
+        ],
+        "std-flake-schemas": "std-flake-schemas"
+      }
+    },
+    "std-flake-schemas": {
+      "inputs": {
         "flake-schemas": "flake-schemas"
+      },
+      "locked": {
+        "dir": "partitions/schemas",
+        "lastModified": 1774222653,
+        "narHash": "sha256-DRSD+d6GR+QuJuocA3boL6AIKfdMInbAPbrupys2HP0=",
+        "ref": "refs/heads/main",
+        "rev": "1e9d432a07f458411d9446f4dfd0761f478dd73f",
+        "revCount": 40,
+        "type": "git",
+        "url": "ssh://git@github.com/marksisson/std"
+      },
+      "original": {
+        "dir": "partitions/schemas",
+        "type": "git",
+        "url": "ssh://git@github.com/marksisson/std"
       }
     }
   },

@@ -5,6 +5,7 @@
   outputs = { ... }: { };
 
   inputs = {
-    flake-schemas.url = "github:DeterminateSystems/flake-schemas";
+    std-flake-schemas.url = "git+ssh://git@github.com/marksisson/std?dir=partitions/schemas";
+    flake-schemas.follows = "std-flake-schemas/flake-schemas";
   };
 }
