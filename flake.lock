@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "core": {
+      "inputs": {
+        "flake-parts": "flake-parts"
+      },
+      "locked": {
+        "lastModified": 1776954496,
+        "narHash": "sha256-PFZxVw/rE888W92ON48xTS+hLXasN8w2PUFZkptW5mI=",
+        "owner": "nixology",
+        "repo": "core",
+        "rev": "7b616e77bccea0935c57c4fb664a7a0c93e470e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixology",
+        "repo": "core",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -35,25 +53,7 @@
     },
     "root": {
       "inputs": {
-        "std": "std"
-      }
-    },
-    "std": {
-      "inputs": {
-        "flake-parts": "flake-parts"
-      },
-      "locked": {
-        "lastModified": 1774885746,
-        "narHash": "sha256-GcE9/5haNQKI6d3Anw9nH4PDDtiUeQJDyzY6Sd1nk78=",
-        "ref": "refs/heads/main",
-        "rev": "0f4e2c279c6840468737c569363ac1a9c5242a6a",
-        "revCount": 40,
-        "type": "git",
-        "url": "ssh://git@github.com/marksisson/std"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/marksisson/std"
+        "core": "core"
       }
     }
   },

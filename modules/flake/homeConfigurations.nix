@@ -44,7 +44,7 @@ let
   component = {
     inherit module;
     dependencies = with inputs.self.components; [
-      nixology.std.schemas
+      nixology.core.schemas
     ];
     meta = {
       description = "Instantiated Home Manager configurations for specific users. Used by `home-manager`.";

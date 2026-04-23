@@ -5,7 +5,7 @@
   outputs = { ... }: { };
 
   inputs = {
-    std-flake-schemas.url = "git+ssh://git@github.com/marksisson/std?dir=partitions/schemas";
-    flake-schemas.follows = "std-flake-schemas/flake-schemas";
+    core-flake-schemas.url = "github:nixology/core?dir=partitions/schemas";
+    flake-schemas.follows = "core-flake-schemas/flake-schemas";
   };
 }

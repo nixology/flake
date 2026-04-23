@@ -1,12 +1,12 @@
 { inputs, ... }:
 {
   imports =
-    with inputs.std.components;
+    with inputs.core.components;
     map (component: component.module) [
-      nixology.std.components
-      nixology.std.debug
-      nixology.std.lib
-      nixology.std.partitions
-      nixology.std.schemas
+      nixology.core.components
+      nixology.core.debug
+      nixology.core.lib
+      nixology.core.partitions
+      nixology.core.schemas
     ];
 }

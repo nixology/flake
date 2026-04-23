@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "core-flake-schemas": {
+      "inputs": {
+        "flake-schemas": "flake-schemas"
+      },
+      "locked": {
+        "dir": "partitions/schemas",
+        "lastModified": 1776954050,
+        "narHash": "sha256-4UDqRWrbU+wQav51+xLFNsaWqA/YnT/Ne+7ZQ1JTMzI=",
+        "owner": "nixology",
+        "repo": "core",
+        "rev": "3e01e50f47f4fbcef92a7a87868d694afd4a4d53",
+        "type": "github"
+      },
+      "original": {
+        "dir": "partitions/schemas",
+        "owner": "nixology",
+        "repo": "core",
+        "type": "github"
+      }
+    },
     "flake-schemas": {
       "locked": {
         "lastModified": 1773072327,
@@ -17,31 +37,11 @@
     },
     "root": {
       "inputs": {
+        "core-flake-schemas": "core-flake-schemas",
         "flake-schemas": [
-          "std-flake-schemas",
+          "core-flake-schemas",
           "flake-schemas"
-        ],
-        "std-flake-schemas": "std-flake-schemas"
-      }
-    },
-    "std-flake-schemas": {
-      "inputs": {
-        "flake-schemas": "flake-schemas"
-      },
-      "locked": {
-        "dir": "partitions/schemas",
-        "lastModified": 1774222653,
-        "narHash": "sha256-DRSD+d6GR+QuJuocA3boL6AIKfdMInbAPbrupys2HP0=",
-        "ref": "refs/heads/main",
-        "rev": "1e9d432a07f458411d9446f4dfd0761f478dd73f",
-        "revCount": 40,
-        "type": "git",
-        "url": "ssh://git@github.com/marksisson/std"
-      },
-      "original": {
-        "dir": "partitions/schemas",
-        "type": "git",
-        "url": "ssh://git@github.com/marksisson/std"
+        ]
       }
     }
   },

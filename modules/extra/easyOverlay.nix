@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  module = with inputs.std.inputs.flake-parts.flakeModules; easyOverlay;
+  module = with inputs.core.inputs.flake-parts.flakeModules; easyOverlay;
 
   component = {
     inherit module;

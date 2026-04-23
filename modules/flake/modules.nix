@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  module = with inputs.std.inputs.flake-parts.flakeModules; {
+  module = with inputs.core.inputs.flake-parts.flakeModules; {
     imports = [ modules ];
     config = {
       flake.schemas.modules = schema;
@@ -18,7 +18,7 @@ let
   component = {
     inherit module;
     dependencies = with inputs.self.components; [
-      nixology.std.schemas
+      nixology.core.schemas
     ];
     meta = {
       shortDescription = "modules for use by other module systems";

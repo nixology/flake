@@ -49,7 +49,7 @@ let
   component = {
     inherit module;
     dependencies = with inputs.self.components; [
-      nixology.std.schemas
+      nixology.core.schemas
     ];
     meta = {
       description = "Home Manager modules";

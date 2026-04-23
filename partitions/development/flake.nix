@@ -5,7 +5,7 @@
   outputs = { ... }: { };
 
   inputs = {
-    pkgs.url = "git+ssh://git@github.com/marksisson/std?dir=partitions/channels/unstable";
+    pkgs.url = "github:nixology/core?dir=partitions/channels/unstable";
 
     git-hooks = {
       url = "github:cachix/git-hooks.nix";

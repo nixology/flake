@@ -20,7 +20,7 @@ let
       name: description:
       let
         module = {
-          imports = [ "${inputs.std.inputs.flake-parts}/modules/${name}.nix" ];
+          imports = [ "${inputs.core.inputs.flake-parts}/modules/${name}.nix" ];
           config = {
             flake.schemas.${name} = flake-schemas.schemas.${name};
           };
@@ -29,7 +29,7 @@ let
         component = {
           inherit module;
           dependencies = with inputs.self.components; [
-            nixology.std.schemas
+            nixology.core.schemas
           ];
           meta = {
             shortDescription = description;
