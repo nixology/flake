@@ -5,11 +5,11 @@
         "flake-parts": "flake-parts"
       },
       "locked": {
-        "lastModified": 1777141747,
-        "narHash": "sha256-EunOFa2hGIj1ePtzS0e+5x17WaJzZxULnHMGhHekMJM=",
+        "lastModified": 1777298952,
+        "narHash": "sha256-b6fDcXhdMyHyQFCxoI4O5I+vQoAeaHwKffaTP8msepU=",
         "owner": "nixology",
         "repo": "core",
-        "rev": "ca440a5e3683e64f7d15249dc0276749892ebd07",
+        "rev": "772b3ca58fe4d72a0967b519c452390c76a48bba",
         "type": "github"
       },
       "original": {
