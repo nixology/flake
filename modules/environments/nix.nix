@@ -19,6 +19,7 @@ let
             enable = lib.mkDefault true;
             excludes = lib.mkDefault [ config.treefmt.projectRootFile ];
           };
+          zizmor.enable = lib.mkDefault true;
         };
       };
   };
