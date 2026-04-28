@@ -6,14 +6,16 @@ on:
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  id-token: write # needed for Magic Nix Cache
+permissions: {}
 
 jobs:
   nix-flake-check:
     name: Nix Flake Check
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write # needed for Magic Nix Cache
 
     steps:
       - name: Checkout repository
@@ -25,7 +27,7 @@ jobs:
         uses: DeterminateSystems/determinate-nix-action@92ffb5400c3776307a27a1727d7e2ac3dcd9f844 # v3
 
       - name: Enable Magic Nix Cache
-        uses: DeterminateSystems/magic-nix-cache-action@58ea4ed96a8b70cedcfa36b46167a3c81adf2b10 # main
+        uses: DeterminateSystems/magic-nix-cache-action@b4a9864e3a8ab8179be30f2e70fd71fe9996bb9d # main
 
       - name: Run nix flake check
         run: nix flake check

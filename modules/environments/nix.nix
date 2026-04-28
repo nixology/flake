@@ -19,6 +19,16 @@ let
             enable = lib.mkDefault true;
             excludes = lib.mkDefault [ config.treefmt.projectRootFile ];
           };
+          yamlfmt = {
+            enable = lib.mkDefault true;
+            settings = {
+              formatter = {
+                type = "basic";
+                retain_line_breaks = true;
+                trim_trailing_whitespace = true;
+              };
+            };
+          };
           zizmor.enable = lib.mkDefault true;
         };
       };
