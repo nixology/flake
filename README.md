@@ -15,7 +15,7 @@ importing modules using `modulesIn` function.
 ```nix
 {
   inputs = {
-    flake.url = "github:nixology/flake";
+    flake.url = "github:nixology/flake.nix";
   };
 
   outputs =
